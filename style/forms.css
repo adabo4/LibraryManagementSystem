@@ -1,0 +1,260 @@
+    /*Search Form */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+    }
+
+
+    .search-items {
+        background-color: #DCE8E8;
+
+    }
+
+
+
+    .search-items form {
+        background-color: #DCE8E8;
+        margin: auto;
+        width: -moz-fit-content;
+        width: fit-content;
+        padding: 1rem;
+        font-size: 14px;
+    }
+
+    .search-items input {
+        background-color: #ffffff;
+        border: 1px solid black;
+        padding: 0 5px;
+        height: 2rem;
+
+    }
+
+    .search-items h1 {
+        margin: 1rem 0;
+    }
+
+    input.searchBtn,
+    input.resetBtn {
+        width: 6rem;
+        border-radius: 2px;
+        height: 2rem;
+        background-image: linear-gradient(to bottom, rgb(222, 238, 222) -5%, green 100%);
+        color: black;
+        cursor: pointer;
+        margin: 1rem 0;
+        border: 2px solid black;
+    }
+
+    input.resetBtn {
+        background-image: linear-gradient(to bottom, rgb(222, 238, 222) -5%, rgb(181, 25, 4) 100%);
+    }
+
+    input.resetBtn:hover {
+        background-image: linear-gradient(to top, rgb(222, 238, 222) -5%, rgb(128, 15, 0) 100%);
+    }
+
+    .searchBtn:hover {
+        background-image: linear-gradient(to top, rgb(222, 238, 222) -5%, green 100%);
+    }
+
+    .searchBtn:active {
+        transform: scale(0.98);
+    }
+
+    input.addBookBtn {
+        background-image: linear-gradient(to bottom, #fff 2%, #f9ba14 100%);
+        width: 8rem;
+        height: 2rem;
+        border: 2px solid black;
+
+    }
+
+    .addBookBtn:hover {
+        cursor: pointer;
+        background-image: linear-gradient(to top, #fff 2%, #f9ba14 100%);
+
+    }
+
+    .addBookBtn:active {
+        transform: scale(0.98);
+
+    }
+
+    .rent-types {
+        height: 1.95rem;
+        border: none;
+        font-weight: 600;
+
+    }
+
+    /* Add Book, Add DVD, Add Member, Rent Title Form , Title Detail Form*/
+
+
+    .body {
+        background-color: #EDF4F4;
+    }
+
+    .title-container {
+        background-color: #DCE8E8;
+        width: 100vw;
+        /* height: 100vh; */
+        padding: 2rem;
+    }
+
+    .title-detail {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        width: 1300px;
+
+    }
+
+    .book-img {
+        width: 30%;
+        height: auto;
+    }
+
+    .updateBtn,
+    .deleteBtn {
+        margin: 1em 0;
+        padding: 5px 15px;
+        color: white;
+        font-weight: 600;
+    }
+
+    .updateBtn {
+        background-color: rgb(62, 208, 62);
+    }
+
+    .deleteBtn {
+        background-color: rgb(166, 34, 34);
+    }
+
+
+
+    .add-items-form h1 {
+
+        padding-bottom: 1rem;
+        margin: 1rem 0;
+    }
+
+    form .fa-solid {
+        margin-right: 5px;
+        font-size: 2rem;
+
+    }
+
+    .add-items-form,
+    .title-detail-form {
+        background-color: #DCE8E8;
+        margin: auto;
+        max-width: 50%;
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .add-items-form input,
+    .title-detail-form input {
+        display: block;
+        width: 100%;
+        background-color: #DCE8E8;
+        border: 1px solid black;
+        padding: .5rem;
+
+    }
+
+    .add-items-form label,
+    .title-detail-form label {
+        margin-top: 1rem;
+        display: block;
+        color: rgb(20, 20, 112);
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .add-items-form .submitBtn {
+        display: block;
+        width: 9rem;
+        height: 2rem;
+        background-color: rgb(11, 102, 11);
+        color: white;
+        cursor: pointer;
+        margin: 1rem 0;
+    }
+
+    .submitBtn:hover {
+        background-color: rgb(17, 118, 17);
+    }
+
+    .dvd-img {
+        width: 40%;
+    }
+
+
+    label::after {
+        content: "*";
+        color: red;
+
+    }
+
+    .rentalTime {
+        margin: .5em 0;
+    }
+
+    .rentalTime p {
+        margin: 1em 0;
+    }
+
+    .title-info {
+        color: green;
+        font-size: 1.3em;
+
+    }
+
+    .title-info:hover {
+        color: lightgreen;
+        transform: scale(1.1);
+
+    }
+
+
+    /* Media queries */
+
+    @media screen and (max-width: 720px) {
+
+        .search-items form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+        }
+
+        .search-items input {
+            margin: .5em 0;
+        }
+
+        input.searchBtn {
+            width: 100%;
+        }
+
+        input.addBookBtn,
+        input.resetBtn {
+            width: 100%;
+        }
+
+        .add-items-form {
+            max-width: 70%;
+            margin-bottom: 0.3em;
+        }
+    }
+
+    @media screen and (max-width: 420px) {
+
+        .add-items-form {
+            max-width: 95%;
+        }
+
+    }

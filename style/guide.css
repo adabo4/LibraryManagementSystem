@@ -1,0 +1,120 @@
+body {
+    background-image: url(../img/libraryBackground.jpg);
+    background-position-y: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+
+}
+
+.grid-container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "left" "guide-article" "right"
+
+}
+
+.left {
+    grid-area: left;
+}
+
+.guide-article {
+    padding: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F7F6F6;
+
+
+}
+
+
+
+.right {
+    grid-area: right;
+}
+
+
+.guide-article h1 {
+    margin: 1em 0;
+    
+}
+
+.guide-article h2 {
+    color: #C70202;
+    border-bottom: 2px solid #d0cccc;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin: 1em 0;
+
+
+}
+
+.guide-article h2::first-letter {
+    color: blue;
+    font-size: 1.5em;
+}
+
+.guide-article section p {
+    margin: 1em 0;
+}
+
+.guide-article a {
+    color: #ef8aed;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.guide-article a:visited {
+    color: #800080;
+    text-decoration: none;
+}
+
+.guide-article a:hover {
+    color: #ff0000;
+    text-decoration: underline;
+
+}
+
+
+@media screen and (max-width: 800px) {
+
+    .grid-container {
+        grid-template-columns: 3fr;
+
+    }
+
+
+    .guide-article {
+        background-color: white;
+
+
+    }
+
+    .guide-article h1 {
+        text-align: center;
+    }
+
+    body {
+        background-image: none;
+    }
+}
+
+@media screen and (max-width: 420px) {
+
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .guide-article {
+        background-color: white;
+    }
+
+    .guide-article h1 {
+        text-align: center;
+    }
+
+    body {
+        background-image: none;
+    }
+}

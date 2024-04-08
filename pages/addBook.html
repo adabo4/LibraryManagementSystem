@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="../style/forms.css">
+    <link rel="stylesheet" href="../style/logo.css">
+    <link rel="stylesheet" href="../style/menu.css">
+    <link rel="stylesheet" href="../style/common.css">
+</head>
+
+<body>
+
+    <div class="container-logo">
+        <a href="../index.html">
+            <div class="logo-wrapper">
+                <div class="red"></div>
+                <div class="green"></div>
+                <div class="blue"></div>
+                <div class="orange"></div>
+            </div>
+
+            <div class="logo">
+                LMS
+            </div>
+        </a>
+    </div>
+
+
+
+    <nav class="nav-menu">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="../index.html">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                </a>
+            </li>
+
+            <li class="nav-item ">
+                <a href="#">
+                    <i class="fa-solid fa-book"></i>
+                    Titles
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item">
+                        <a href="books.html" class="dropdown-link">Books</a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="dvd.html" class="dropdown-link">DVDs</a>
+                    </li>
+                </ul>
+
+            </li>
+
+
+            <li class="nav-item">
+                <a href="#">
+                    <i class="fa-solid fa-users"></i>
+                    Members
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item">
+                        <a href="allMembers.html" class="dropdown-link">Members</a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="addMember.html" class="dropdown-link">Add member</a>
+                    </li>
+                </ul>
+
+
+
+            </li>
+            <li class="nav-item">
+                <a href="#">
+                    <i class="fa-solid fa-address-book"></i>
+                    Rentals
+                </a>
+                <ul class="dropdown-menu rentals">
+                    <li class="dropdown-item">
+                        <a href="allRentals.html" class="dropdown-link">Rentals</a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="rentTitle.html" class="dropdown-link">Rent a title</a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="queueOfRequests.html" class="dropdown-link">Queue of requests</a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="rentalsPastDue.html" class="dropdown-link">Rentals past due</a>
+                    </li>
+                </ul>
+
+            </li>
+            <li class="nav-item">
+                <a href="notifications.html">
+                    <i class="fa-solid fa-bookmark"></i>
+                    Notifications
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="guide.html">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Guide
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <form class="add-items-form">
+        <h1>Add new book</h1>
+        <label for="titleOfBook">Title</label>
+        <input type="text" id="titleOfBook" name="titleBook" placeholder="Titles" required>
+
+        <label for="authorOfBook">Author</label>
+        <input type="text" id="authorOfBook" name="authorBook" placeholder="Author" required>
+
+        <label for="isbn">ISBN</label>
+        <input type="text" id="isbn" name="isbn" placeholder="ISBN" required>
+
+        <label for="pageNumbers">Number of pages</label>
+        <input type="text" id="pageNumbers" name="pages" placeholder="Number of pages" required>
+
+        <label for="availableBookCopies">Available copies</label>
+        <input type="text" id="availableBookCopies" name="availableBookCopies" placeholder="Avaliable copies" required>
+
+        <label for="totalBookCopies">Total avaliable copies</label>
+        <input type="text" id="totalBookCopies" name="totalBookCopies" placeholder="Total avaliable copies" required>
+
+        <input type="submit" class="submitBtn" value="Add book">
+
+    </form>
+
+    <script src="../script/addBook.js"></script>
+</body>
+
+</html>

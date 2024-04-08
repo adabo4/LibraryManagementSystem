@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVD</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="../style/common.css">
+    <link rel="stylesheet" href="../style/forms.css">
+    <link rel="stylesheet" href="../style/tables.css">
+    <link rel="stylesheet" href="../style/menu.css">
+    <link rel="stylesheet" href="../style/logo.css">
+
+</head>
+
+<body>
+
+    <div class="container-logo">
+        <a href="../index.html">
+            <div class="logo-wrapper">
+                <div class="red"></div>
+                <div class="green"></div>
+                <div class="blue"></div>
+                <div class="orange"></div>
+            </div>
+
+            <div class="logo">
+                LMS
+            </div>
+        </a>
+    </div>
+
+    <nav class="nav-menu">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="../index.html">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                </a>
+            </li>
+
+            <li class="nav-item ">
+                <a href="#">
+                    <i class="fa-solid fa-book"></i>
+                    Titles
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item">
+                        <a href="books.html" class="dropdown-link">Books</a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="dvd.html" class="dropdown-link">DVDs</a>
+                    </li>
+                </ul>
+
+            </li>
+
+
+            <li class="nav-item">
+                <a href="#">
+                    <i class="fa-solid fa-users"></i>
+                    Members
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item">
+                        <a href="allMembers.html" class="dropdown-link">Members</a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="addMember.html" class="dropdown-link">Add member</a>
+                    </li>
+                </ul>
+
+
+
+            </li>
+            <li class="nav-item">
+                <a href="#">
+                    <i class="fa-solid fa-address-book"></i>
+                    Rentals
+                </a>
+                <ul class="dropdown-menu rentals">
+                    <li class="dropdown-item">
+                        <a href="allRentals.html" class="dropdown-link">Rentals</a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="rentTitle.html" class="dropdown-link">Rent a title</a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="queueOfRequests.html" class="dropdown-link">Queue of requests</a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="rentalsPastDue.html" class="dropdown-link">Rentals past due</a>
+                    </li>
+                </ul>
+
+            </li>
+            <li class="nav-item">
+                <a href="notifications.html">
+                    <i class="fa-solid fa-bookmark"></i>
+                    Notifications
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="guide.html">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Guide
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="search-items">
+        <form action="./addDVD.html">
+            <h1><i class="fa-solid fa-compact-disc"></i>DVDs</h1>
+            <input type="text" placeholder="Title" name="Title" class="searchInput" id="name">
+            <input type="text" placeholder="Author" name="author" class="searchInput" id="author">
+            <input type="button" class="searchBtn" value="Search">
+            <input type="button" class="resetBtn" value="Reset">
+            <input type="submit" class="addBookBtn" value="Add DVD">
+        </form>
+    </div>
+
+    <div class="tables-container">
+        <table class="allTables">
+            <thead>
+                <tr>
+                    <th>TITLE</th>
+                    <th>AUTHOR</th>
+                    <th>PUBLISH YEAR</th>
+                    <th>AVAILABLE COPIES</th>
+                    <th>TOTAL AVAILABLE COPIES</th>
+                    <th>TITLE <span>DETAIL</span></th>
+                    <th></th>
+                </tr>
+
+
+            </thead>
+
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script src="../script/dvd.js"></script>
+    <script src="../script/filter.js"></script>
+
+
+</body>
+
+</html>

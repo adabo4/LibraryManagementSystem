@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+
+.nav-menu {
+    background-color: #303030;
+    text-align: center;
+    width: 100%;
+
+}
+
+.nav-list {
+    list-style: none;
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+
+
+}
+
+
+
+.nav-item {
+    margin: 0rem 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    display: inline-block;
+    padding: 1rem;
+
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    display: block;
+
+
+}
+
+.nav-item i {
+    margin-right: 5px;
+}
+
+.nav-item:hover {
+    background-color: #717070;
+}
+
+nav .fa-solid {
+    margin: 0;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    list-style: none;
+    margin: auto;
+    display: none;
+    position: absolute;
+    background-color: white;
+    max-width: 200px;
+    width: 150px;
+    z-index: 2;
+    top: 100%;
+    text-align: start;
+    left: 0px;
+    transition: opacity 0.3s ease-in-out;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 1);
+
+}
+
+.rentals {
+    width: 200px;
+}
+
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item a {
+    color: black;
+}
+
+.dropdown-item {
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    color: #333;
+
+
+}
+
+.dropdown-item:hover {
+    background-color: #ddd;
+}
+
+.dropdown-menu.rounded-0 li.dropdown-item:hover,
+ul.dropdown-menu.rounded-0 li.dropdown-item:hover a {
+    background-color: #ddd;
+
+}
+
+
+
+
+/* MAIN PAGE */
+
+body {
+    overflow: auto;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+}
+
+
+
+/* Media Queries */
+
+@media screen and (max-width: 420px) {
+    .background-image {
+        display: none;
+    }
+
+    .nav-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+    }
+
+
+    .nav-item {
+        display: unset;
+        width: 100%;
+
+    }
+
+    .dropdown-menu {
+        max-width: 100%;
+        width: 100%;
+        text-align: center;
+    }
+
+
+
+
+}

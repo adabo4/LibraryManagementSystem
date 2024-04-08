@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+
+.container-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+
+
+
+}
+
+.custom {
+    height: 60px;
+}
+
+.custom a:visited {
+    color: #551A8B;
+
+}
+
+
+.container-logo a {
+    text-decoration: none;
+    display: flex;
+}
+
+
+.logo {
+    font-size: 50px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+
+
+
+.logo-wrapper {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin-right: 5px;
+}
+
+.red,
+.blue,
+.green,
+.orange {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+}
+
+.red {
+    border: 5px solid #861010;
+    left: 0;
+    top: 0;
+    z-index: 4;
+    animation: turnright 2s forwards, fadeInRed 2s forwards, fadeOutRed 2s 2s forwards;
+}
+
+.green {
+    border: 5px solid #008000;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    animation: turnleft 2s forwards, fadeInGreen 2s forwards, fadeOutGreen 2s 2s forwards;
+}
+
+.blue {
+    border: 5px solid #101078;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    animation: turnright 2s forwards, fadeInBlue 2s forwards, fadeOutBlue 2s 2s forwards;
+}
+
+.orange {
+    border: 5px solid #ffa500;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    animation: turnleft 2s forwards, fadeInOrange 2s forwards, fadeOutOrange 2s 2s forwards;
+}
+
+@keyframes turnright {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes turnleft {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-180deg);
+    }
+}
+
+@keyframes fadeInRed {
+    0% {
+        background-color: rgba(134, 16, 16, 0);
+    }
+
+    100% {
+        background-color: rgba(134, 16, 16, 0.5);
+    }
+}
+
+@keyframes fadeOutRed {
+    0% {
+        background-color: rgba(134, 16, 16, 0.5);
+    }
+
+    100% {
+        background-color: rgba(134, 16, 16, 0);
+    }
+}
+
+@keyframes fadeInGreen {
+    0% {
+        background-color: rgba(0, 128, 0, 0);
+    }
+
+    100% {
+        background-color: rgba(0, 128, 0, 0.5);
+    }
+}
+
+@keyframes fadeOutGreen {
+    0% {
+        background-color: rgba(0, 128, 0, 0.5);
+    }
+
+    100% {
+        background-color: rgba(0, 128, 0, 0);
+    }
+}
+
+@keyframes fadeInBlue {
+    0% {
+        background-color: rgba(16, 16, 120, 0);
+    }
+
+    100% {
+        background-color: rgba(16, 16, 120, 0.5);
+    }
+}
+
+@keyframes fadeOutBlue {
+    0% {
+        background-color: rgba(16, 16, 120, 0.5);
+    }
+
+    100% {
+        background-color: rgba(16, 16, 120, 0);
+    }
+}
+
+@keyframes fadeInOrange {
+    0% {
+        background-color: rgba(255, 165, 0, 0);
+    }
+
+    100% {
+        background-color: rgba(255, 165, 0, 0.5);
+    }
+}
+
+@keyframes fadeOutOrange {
+    0% {
+        background-color: rgba(255, 165, 0, 0.5);
+    }
+
+    100% {
+        background-color: rgba(255, 165, 0, 0);
+    }
+}

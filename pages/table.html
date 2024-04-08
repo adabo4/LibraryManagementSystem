@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Search</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            background-color: red;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="text" placeholder="Company" name="company" id="company" class="searchInput">
+    <input type="text" placeholder="Contact" name="contact" id="contact" class="searchInput">
+    <input type="text" placeholder="Country" name="country" id="country" class="searchInput">
+
+    <table id="myTable">
+        <tr>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Country</th>
+        </tr>
+        <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+        </tr>
+        <tr>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+        </tr>
+    </table>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let searchInputs = document.querySelectorAll(".searchInput");
+
+            searchInputs.forEach(input => {
+                input.addEventListener("input", searchTable);
+            });
+
+            function searchTable() {
+                let inputId = this.id;
+                let inputValue = this.value.toLowerCase();
+                let table = document.getElementById("myTable");
+                let rows = table.getElementsByTagName("tr");
+
+                for (let i = 1; i < rows.length; i++) {
+                    let cells = rows[i].getElementsByTagName("td")[inputId === "company" ? 0 : inputId === "contact" ? 1 : 2];
+                    let cellValue = cells.textContent || cells.innerText;
+
+                    if (cellValue.toLowerCase().indexOf(inputValue) > -1) {
+                        rows[i].style.display = "";
+                    } else {
+                        rows[i].style.display = "none";
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
