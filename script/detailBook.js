@@ -1,6 +1,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
-const url = "https://student-fed1.metis.academy/api/Books";
+// const url = "https://student-fed1.metis.academy/api/Books";
+const url = "http://localhost:3000/api/Books"
 
 let author = document.getElementById("author");
 let name = document.getElementById("title");

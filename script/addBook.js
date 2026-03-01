@@ -7,7 +7,8 @@ let isbn = document.getElementById("isbn");
 
 
 
-const url = "https://student-fed1.metis.academy/api/Books";
+// const url = "https://student-fed1.metis.academy/api/Books";
+const url = "http://localhost:3000/api/Books"
 
 let submitBtn = document.querySelector(".add-items-form");
 

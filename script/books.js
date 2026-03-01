@@ -1,4 +1,5 @@
-const url = "https://student-fed1.metis.academy/api/Books";
+// const url = "https://student-fed1.metis.academy/api/Books";
+const url = "http://localhost:3000/api/Books"
 let tableBody = document.querySelector("tbody");
 
 
@@ -59,7 +60,7 @@ function createIcon(id) {
 async function deleteData(id) {
     if (confirm("Are you sure you want to delete the title?")) {
         try {
-            const response = await fetch(`https://student-fed1.metis.academy/api/Books/${id}`, {
+            const response = await fetch(`${url}/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json"

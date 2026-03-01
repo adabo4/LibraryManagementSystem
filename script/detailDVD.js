@@ -1,6 +1,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
-const url = "https://student-fed1.metis.academy/api/Dvds";
+// const url = "https://student-fed1.metis.academy/api/Dvds";
+const url = "http://localhost:3000/api/Dvds";
 
 let name = document.getElementById("title");
 const titleDetailForm = document.querySelector(".title-detail-form");
@@ -14,8 +15,8 @@ deleteBtn.addEventListener("click", async function (e) {
 
     if (isConfirmed) {
         try {
-            await deleteData();
-            window.location.pathname = "./pages/dvd.html";
+            await deleteData(url, id);
+            window.location.href = "/pages/dvd.html";
 
         } catch (error) {
             alert(error);
@@ -34,6 +35,7 @@ titleDetailForm.addEventListener("submit", async function (e) {
     if (isConfirmed) {
         try {
             await updateData();
+            alert("Data successfully updated!");
             window.location.pathname = "./pages/dvd.html";
         } catch (error) {
             alert(error);
@@ -102,14 +104,17 @@ async function updateData() {
         const name = document.getElementById("title");
         const totalAvailableCopies = document.getElementById("totalAvailableCopies");
         const publishYear = document.getElementById("publishYear");
+        const numberOfMinutes = document.getElementById("numberOfMinutes")
 
         const updateDataconst = {
             author: author.value,
             name: name.value,
-            totalAvailableCopies: totalAvailableCopies.value,
-            publishYear: publishYear.value,
-
+            totalAvailableCopies: parseInt(totalAvailableCopies.value),
+            publishYear: parseInt(publishYear.value),
+            numberOfMinutes: parseInt(numberOfMinutes.value)
         };
+
+        console.log('Sending update data:', updateDataconst);
 
         let res = await fetch(`${url}/${id}`, {
             method: "PUT",
@@ -120,17 +125,28 @@ async function updateData() {
         });
 
         if (!res.ok) {
-            const errorData = await res.json();
-            console.log(errorData);
-            throw new Error(`HTTP error! Status: ${res.status}, Errors: ${JSON.stringify(errorData)}`);
+            let errorMessage;
+            try {
+                const errorData = await res.json();
+                errorMessage = `HTTP error! Status: ${res.status}, Errors: ${JSON.stringify(errorData)}`;
+                console.log('Error response:', errorData);
+            } catch {
+                const text = await res.text();
+                errorMessage = `HTTP error! Status: ${res.status}: ${text}`;
+            }
+            throw new Error(errorMessage);
         }
+
+        console.log('Update successful');
+        return await res.json();
     } catch (error) {
-        console.log(error);
+        console.log('Update error:', error);
+        throw error;
     }
 }
 
 
-async function deleteData() {
+async function deleteData(url, id) {
 
     try {
         const res = await fetch(`${url}/${id}`, {
@@ -138,8 +154,8 @@ async function deleteData() {
         })
 
         if (!res.ok) {
-            const errorData = res.json();
-            throw new Error(`HTTP error! Status: ${res.status}, Errors: ${(errorData)}`)
+            const errorData = await res.json();
+            throw new Error(`HTTP error! Status: ${res.status}, Errors: ${JSON.stringify(errorData)}`)
         }
 
     } catch (error) {

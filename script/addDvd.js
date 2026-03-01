@@ -5,7 +5,8 @@ let totalDVDCopies = document.getElementById("totalDVDCopies");
 let publishYear = document.getElementById("publishYear");
 
 
-const url = "https://student-fed1.metis.academy/api/Dvds";
+// const url = "https://student-fed1.metis.academy/api/Dvds";
+const url = "http://localhost:3000/api/Dvds";
 
 let addItemsForm = document.querySelector(".add-items-form");
 
