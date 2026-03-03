@@ -1,6 +1,6 @@
 import API_URL from "./config.js";
 // const url = "https://student-fed1.metis.academy/api/Books";
-// const url = "https://api.flights.home.sk/api/books";
+// const API_URL = "http://localhost:3000"
 let tableBody = document.querySelector("tbody");
 
 async function fetchData(url) {

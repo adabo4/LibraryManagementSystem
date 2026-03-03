@@ -2,7 +2,7 @@ import API_URL from "./config.js"
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
 // const url = "https://student-fed1.metis.academy/api/Books";
-// const url = "http://localhost:3000/api/Books"
+//const API_URL = "http://localhost:3000"
 
 
 let author = document.getElementById("author");

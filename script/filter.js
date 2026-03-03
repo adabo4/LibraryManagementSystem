@@ -3,7 +3,7 @@ let searchBtn = document.querySelector(".searchBtn");
 let resetBtn = document.querySelector(".resetBtn");
 const table = document.querySelector(".allTables");
 const inputElements = document.querySelectorAll(".searchInput");
-const cell = table === null || table === void 0 ? void 0 : table.querySelectorAll("td");
+const cell = table?.querySelectorAll("td");
 searchBtn.addEventListener("click", searchBooks);
 function searchBooks(event) {
     event.preventDefault();
@@ -21,10 +21,9 @@ function searchBooks(event) {
         if (inputElements[i].value !== "") {
             let inputMatch = false;
             Array.from(table.rows).forEach((row) => {
-                var _a;
-                let column = row === null || row === void 0 ? void 0 : row.cells[i];
+                let column = row?.cells[i];
                 if (column !== undefined && column !== null) {
-                    let cellText = ((_a = (column.innerText || column.textContent)) === null || _a === void 0 ? void 0 : _a.toLowerCase()) || "";
+                    let cellText = (column.innerText || column.textContent)?.toLowerCase() || "";
                     let inputValue = inputElements[i].value.toLowerCase();
                     if (cellText.includes(inputValue)) {
                         row.style.display = "";

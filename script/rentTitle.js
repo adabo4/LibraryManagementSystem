@@ -1,5 +1,9 @@
+import API_URL from "./config.js";
+
 let memberList = document.getElementById("memberList");
 let titleList = document.getElementById("titleList");
+
+// https://student-fed1.metis.academy/
 
 let inputMember = document.getElementById("member");
 let inputTitle = document.getElementById("rentTitle");
@@ -17,7 +21,7 @@ async function addMembersList() {
 
     try {
         const response = await fetch(
-            "https://student-fed1.metis.academy/api/Members"
+            `${API_URL}/api/Members`
         );
         const data = await response.json();
 
@@ -50,11 +54,11 @@ async function addTitleList() {
     const titleList = document.getElementById("titleList");
 
     try {
-        const dvdResponse = await fetch("https://student-fed1.metis.academy/api/Dvds");
+        const dvdResponse = await fetch(`${API_URL}/api/Dvds`);
         const dvdData = await dvdResponse.json();
 
 
-        const bookResponse = await fetch("https://student-fed1.metis.academy/api/Books");
+        const bookResponse = await fetch(`${API_URL}/api/Books`);
         const bookData = await bookResponse.json();
 
 
@@ -166,7 +170,7 @@ async function post(titleid, memberid) {
     }
 
     try {
-        const response = await fetch("https://student-fed1.metis.academy/api/RentalEntries", {
+        const response = await fetch(`${API_URL}/api/RentalEntries`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
