@@ -1,7 +1,9 @@
+import API_URL from "./config.js"
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
 // const url = "https://student-fed1.metis.academy/api/Books";
-const url = "http://localhost:3000/api/Books"
+// const url = "http://localhost:3000/api/Books"
+
 
 let author = document.getElementById("author");
 let name = document.getElementById("title");
@@ -60,8 +62,9 @@ const inputs = [
 
 async function fetchBook(url, id) {
     try {
-        const res = await fetch(`${url}/${id}`);
+        const res = await fetch(`${url}/api/books/${id}`);
         const data = await res.json();
+        console.log(data)
         if (res.status !== 200) {
             throw new Error(res.statusText);
         }
@@ -74,7 +77,7 @@ async function fetchBook(url, id) {
 
 async function fetchData() {
     try {
-        const book = await fetchBook(url, id);
+        const book = await fetchBook(API_URL, id);
 
         title.value = book.name;
         inputsFunction(book);
@@ -107,15 +110,15 @@ async function updateData() {
 
     const updateDataconst = {
         author: author.value,
+        name: name.value,
         totalAvailableCopies: totalAvailableCopies.value,
         isbn: isbn.value,
-        name: name.value,
         numberOfPages: numberOfPages.value
     }
 
 
     try {
-        let res = await fetch(`${url}/${id}`, {
+        let res = await fetch(`${API_URL}/api/books/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -123,6 +126,8 @@ async function updateData() {
             body: JSON.stringify(updateDataconst)
 
         });
+
+        console.log(updateDataconst)
 
         if (!res.ok) {
             const errorData = await res.json();
@@ -140,13 +145,13 @@ async function updateData() {
 async function deleteData() {
 
     try {
-        const res = await fetch(`${url}/${id}`, {
+        const res = await fetch(`${API_URL}/api/books/${id}`, {
             method: "DELETE"
         })
 
         if (!res.ok) {
-            const errorData = res.json();
-            throw new Error(`HTTP error! Status: ${res.status}, Errors: ${(errorData)}`)
+            const errorData = await res.json();
+            throw new Error(`HTTP error! Status: ${res.status}, Errors: ${JSON.stringify(errorData)}`)
         }
     } catch (error) {
         console.log(error);

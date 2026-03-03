@@ -1,3 +1,5 @@
+import API_URL from "./config.js";
+
 let firstName = document.getElementById("firstName");
 let lastName = document.getElementById("lastName");
 let personalId = document.getElementById("personalId");
@@ -5,7 +7,7 @@ let dateOfBirth = document.getElementById("dateOfBirth");
 
 let submitBtn = document.querySelector(".add-items-form");
 
-const url = "https://student-fed1.metis.academy/api/Members";
+// const url = "https://student-fed1.metis.academy/api/Members";
 
 submitBtn.addEventListener('submit', function (event) {
     addItem(event)
@@ -53,7 +55,7 @@ function addItem(event) {
             personalId: personalId.value,
             dateOfBirth: dateOfBirth.value,
         }
-        post(url, data);
+        post(API_URL, data);
     }
 
 
@@ -65,7 +67,7 @@ async function post(url, data) {
 
     try {
 
-        const response = await fetch(url, {
+        const response = await fetch(`${url}/api/members`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"

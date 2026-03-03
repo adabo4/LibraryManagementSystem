@@ -1,11 +1,12 @@
+import API_URL from "./config.js";
 // const url = "https://student-fed1.metis.academy/api/Members";
-const url = "http://localhost:3000/api/Members";
+// const url = "http://localhost:3000/api/Members";
 let tableBody = document.querySelector("tbody");
 
 
 async function fetchData(url) {
     try {
-        const response = await fetch(url);
+        const response = await fetch(`${url}/api/members`);
         const data = await response.json();
         return data;
     } catch (error) {
@@ -60,7 +61,7 @@ function createIcon(id) {
 
 async function deleteData(id) {
     try {
-        const response = await fetch(`${url}/${id}`, {
+        const response = await fetch(`${API_URL}/api/members/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -105,5 +106,5 @@ function clearTable() {
     tableBody.innerHTML = '';
 }
 
-fetchData(url).then((books) => createTable(books));
+fetchData(API_URL).then((books) => createTable(books));
 

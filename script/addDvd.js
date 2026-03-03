@@ -1,3 +1,5 @@
+import API_URL from "./config.js";
+
 let titleOfDVD = document.getElementById("titleOfDVD");
 let authorOfDVD = document.getElementById("authorOfDVD");
 let availableDVDCopies = document.getElementById("availableDVDCopies");
@@ -6,7 +8,7 @@ let publishYear = document.getElementById("publishYear");
 
 
 // const url = "https://student-fed1.metis.academy/api/Dvds";
-const url = "http://localhost:3000/api/Dvds";
+// const url = "http://localhost:3000/api/Dvds";
 
 let addItemsForm = document.querySelector(".add-items-form");
 
@@ -23,7 +25,7 @@ function addItem() {
         publishYear: publishYear.value
     }
 
-    postDVD(url, data);
+    postDVD(API_URL, data);
 
     clearInputs([titleOfDVD, authorOfDVD, publishYear, availableDVDCopies, totalDVDCopies]);
 }
@@ -32,7 +34,7 @@ async function postDVD(url, data) {
 
     try {
 
-        const response = await fetch(url, {
+        const response = await fetch(`${url}/api/dvds`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"

@@ -1,7 +1,8 @@
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
+import API_URL from "./config.js";
 // const url = "https://student-fed1.metis.academy/api/Dvds";
-const url = "http://localhost:3000/api/Dvds";
+// const url = "http://localhost:3000/api/Dvds";
 
 let name = document.getElementById("title");
 const titleDetailForm = document.querySelector(".title-detail-form");
@@ -55,7 +56,7 @@ const inputs = [
 
 async function fetchBook(url, id) {
     try {
-        const res = await fetch(`${url}/${id}`);
+        const res = await fetch(`${url}/api/dvds/${id}`);
         const data = await res.json();
 
         if (res.status !== 200) {
@@ -69,7 +70,7 @@ async function fetchBook(url, id) {
 
 async function fetchData() {
     try {
-        const dvd = await fetchBook(url, id);
+        const dvd = await fetchBook(API_URL, id);
         if (dvd) {
             name.value = dvd.name;
             inputsFunction(dvd);
@@ -116,7 +117,7 @@ async function updateData() {
 
         console.log('Sending update data:', updateDataconst);
 
-        let res = await fetch(`${url}/${id}`, {
+        let res = await fetch(`${API_URL}/api/dvds/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -149,7 +150,7 @@ async function updateData() {
 async function deleteData(url, id) {
 
     try {
-        const res = await fetch(`${url}/${id}`, {
+        const res = await fetch(`${url}/api/dvds/${id}`, {
             method: "DELETE"
         })
 

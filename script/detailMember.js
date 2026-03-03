@@ -1,8 +1,11 @@
+import API_URL from "./config.js";
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
 
 // const url = "https://student-fed1.metis.academy/api/Members";
-const url = "http://localhost:3000/api/members"
+// const url = "http://localhost:3000/api/members"
+
+
 
 const titleDetailForm = document.querySelector(".title-detail-form");
 
@@ -55,7 +58,7 @@ const inputs = [
 
 async function fetchBook(url, id) {
     try {
-        const res = await fetch(`${url}/${id}`);
+        const res = await fetch(`${API_URL}/api/members/${id}`);
         const data = await res.json();
 
         if (res.status !== 200) {
@@ -69,7 +72,7 @@ async function fetchBook(url, id) {
 
 async function fetchData() {
     try {
-        const dvd = await fetchBook(url, id);
+        const dvd = await fetchBook(`${API_URL}/api/members`, id);
 
         inputsFunction(dvd);
 
@@ -110,7 +113,7 @@ async function updateData() {
     }
 
     try {
-        let res = await fetch(`${url}/${id}`, {
+        let res = await fetch(`${API_URL}/api/members/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -137,7 +140,7 @@ async function updateData() {
 async function deleteData() {
 
     try {
-        const res = await fetch(`${url}/${id}`, {
+        const res = await fetch(`${API_URL}/api/members/${id}`, {
             method: "DELETE"
         })
 

@@ -1,3 +1,4 @@
+import API_URL from "./config.js";
 let titleOfBook = document.getElementById("titleOfBook");
 let authorOfBook = document.getElementById("authorOfBook");
 let availableBookCopies = document.getElementById("availableBookCopies");
@@ -8,7 +9,8 @@ let isbn = document.getElementById("isbn");
 
 
 // const url = "https://student-fed1.metis.academy/api/Books";
-const url = "http://localhost:3000/api/Books"
+// const url = "http://localhost:3000/api/Books"
+// const url = "https://api.flights.home.sk/api/books";
 
 let submitBtn = document.querySelector(".add-items-form");
 
@@ -27,7 +29,7 @@ function addBook() {
         isbn: isbn.value
     }
 
-    post(url, data);
+    post(API_URL, data);
     clearInputs([titleOfBook, authorOfBook, availableBookCopies, totalBookCopies, pageNumbers, isbn]);
 
 }
@@ -36,7 +38,7 @@ async function post(url, data) {
 
     try {
 
-        const response = await fetch(url, {
+        const response = await fetch(`${url}/api/books`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
