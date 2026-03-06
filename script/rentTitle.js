@@ -14,6 +14,9 @@ let filledMemberList;
 let titleId;
 let memberId;
 
+let bookDate;
+let dvdDate;
+let titleType;
 
 async function addMembersList() {
     const membersList = document.getElementById("memberList");
@@ -62,25 +65,22 @@ async function addTitleList() {
         const bookData = await bookResponse.json();
 
 
-        const combinedData = [...dvdData, ...bookData];
-
-        titleList.innerHTML = "";
-
-        combinedData.forEach((item, index) => {
+        bookData.forEach((item, index) => {
             const option = document.createElement("option");
-            if (item.isbn) {
-
-                option.value = `${index + 1}. ${item.author} / ${item.name} / ISBN ${item.isbn}`;
-
-            } else {
-
-                option.value = `${index + 1}. ${item.author} / ${item.name}`;
-            }
-
+            option.value = `${index + 1}. ${item.author} / ${item.name} / ISBN ${item.isbn}`;
             option.setAttribute("data-title-id", item.id);
+            option.setAttribute("data-title-type", "BOOK");
+
             titleList.appendChild(option);
+        });
 
+        dvdData.forEach((item, index) => {
+            const option = document.createElement("option");
+            option.value = `${index + 1}. ${item.author} / ${item.name}`;
+            option.setAttribute("data-title-id", item.id);
+            option.setAttribute("data-title-type", "DVD");
 
+            titleList.appendChild(option);
         });
 
 
@@ -128,7 +128,7 @@ rentalTime.appendChild(maxTimeForDvds);
 if (submitBtn) {
     submitBtn.addEventListener("click", async (event) => {
         event.preventDefault();
-        post(memberId, titleId);
+        post();
 
     });
 
@@ -159,14 +159,14 @@ function getTitleId() {
 
     if (selectedOption) {
         titleId = parseInt(selectedOption.getAttribute("data-title-id"));
+        titleType = selectedOption.getAttribute("data-title-type");
 
     }
 }
 
-async function post(titleid, memberid) {
+async function post() {
     const data = {
-        "memberId": titleid,
-        "titleId": memberid
+        memberId, titleId, titleType
     }
 
     try {
@@ -177,7 +177,10 @@ async function post(titleid, memberid) {
             },
             body: JSON.stringify(data),
 
+
         })
+
+        console.log(data)
 
         if (response.ok) {
             alert(`Title was successfully rented.`)
