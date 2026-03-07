@@ -33,7 +33,7 @@ async function createTable(data) {
             tr.appendChild(createTd(oneData.firstName));
             tr.appendChild(createTd(oneData.lastName));
             tr.appendChild(createTd(oneData.personalId));
-            tr.appendChild(createTd(oneData.dateOfBirth));
+            tr.appendChild(createTd(changeDate(oneData.dateOfBirth)));
             tr.append(createIcon(oneData.id));
             tr.append(createButton(oneData.id));
             tableBody.appendChild(tr);
@@ -47,6 +47,16 @@ function createTd(value) {
     return td;
 
 }
+
+export function changeDate(date) {
+    let dayOfBirth = new Date(date).getDate()
+    let monthOfBirth = new Date(date).getMonth()
+    let yearOfBirth = new Date(date).getFullYear()
+    let dateOfBirth = `${dayOfBirth}. ${monthOfBirth + 1}. ${yearOfBirth}`
+    return dateOfBirth;
+}
+
+
 
 function createIcon(id) {
     let td = document.createElement("td");
