@@ -69,8 +69,9 @@ async function deleteData(id) {
             });
 
             if (!response.ok) {
-                const errorText = await response.text();
-                throw new Error(`HTTP error! Status: ${response.status}, Message: ${errorText}`);
+                const errorData = await response.json();
+                alert(errorData.message)
+                return
             }
 
             alert("Deleted successfully");
