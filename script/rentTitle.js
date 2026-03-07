@@ -167,7 +167,7 @@ function getTitleId() {
 async function post() {
     const data = {
         memberId, titleId, titleType
-    }
+    };
 
     try {
         const response = await fetch(`${API_URL}/api/RentalEntries`, {
@@ -176,42 +176,31 @@ async function post() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(data),
+        });
 
+        const result = await response.json();
 
-        })
-
-        console.log(data)
-
-        if (response.ok) {
-            alert(`Title was successfully rented.`)
-
-        }
+        console.log(result);
 
         if (!response.ok) {
-            let errorMessage = `HTTP error ${response.status}`;
-
-            try {
-                const errorData = await response.json();
-                errorMessage = errorData.message || errorMessage;
-
-            } catch (error) {
-                console.log(error);
-            }
-            alert(errorMessage);
+            alert(result.message || `HTTP error ${response.status}`);
             return;
         }
 
-        else {
-            throw new Error(`HTTP error! Status: ${response.status}, Message: ${response.statusText}`);
-
+        if (result.action === "rented") {
+            alert("Title was successfully rented.");
+        } else if (result.action === "queued") {
+            alert("No available copies. Title was added to queue.");
+        } else {
+            alert(result.message || "Operation completed successfully.");
         }
 
         window.location.reload();
 
     } catch (error) {
-        console.log(error)
+        console.log(error);
+        alert("Something went wrong.");
     }
-
 }
 
 

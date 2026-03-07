@@ -1,4 +1,5 @@
-const url = "https://student-fed1.metis.academy/api/QueueItems";
+// const url = "https://student-fed1.metis.academy/api/QueueItems";
+import API_URL from "./config.js"
 let tableBody = document.querySelector("tbody");
 
 async function fetchData(url) {
@@ -10,7 +11,7 @@ async function fetchData(url) {
             return response;
 
         } else if (res.status === 404) {
-            alert("No data to display.");
+
             return [];
 
         }
@@ -82,7 +83,7 @@ function clearTable() {
     tableBody.innerHTML = '';
 }
 
-fetchData(url).then((books) => createTable(books));
+fetchData(`${API_URL}/api/queueItems`).then((books) => createTable(books));
 
 
 
