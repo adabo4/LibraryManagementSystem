@@ -186,6 +186,21 @@ async function post() {
             alert(`Title was successfully rented.`)
 
         }
+
+        if (!response.ok) {
+            let errorMessage = `HTTP error ${response.status}`;
+
+            try {
+                const errorData = await response.json();
+                errorMessage = errorData.message || errorMessage;
+
+            } catch (error) {
+                console.log(error);
+            }
+            alert(errorMessage);
+            return;
+        }
+
         else {
             throw new Error(`HTTP error! Status: ${response.status}, Message: ${response.statusText}`);
 
